@@ -20,7 +20,7 @@ namespace ActivityThree.Controllers
         {
             try
             {
-                if (course.CourseId != null && course.CourseTitle != null && course.CourseDuration != null && course.CourseMode != null)
+                if (course.CourseId != null && course.CourseTitle != null && course.CourseDuration != 0 && course.CourseMode != null)
                 {
 
                     blObj = new CourseBL();
