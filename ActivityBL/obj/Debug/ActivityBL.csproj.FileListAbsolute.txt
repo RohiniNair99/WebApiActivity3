@@ -1,0 +1,11 @@
+C:\Users\Hp\source\repos\WebAPIActivity3\ActivityBL\bin\Debug\ActivityBL.dll
+C:\Users\Hp\source\repos\WebAPIActivity3\ActivityBL\bin\Debug\ActivityBL.pdb
+C:\Users\Hp\source\repos\WebAPIActivity3\ActivityBL\bin\Debug\ActivityDTO.dll
+C:\Users\Hp\source\repos\WebAPIActivity3\ActivityBL\bin\Debug\Activity_DAL.dll
+C:\Users\Hp\source\repos\WebAPIActivity3\ActivityBL\bin\Debug\ActivityDTO.pdb
+C:\Users\Hp\source\repos\WebAPIActivity3\ActivityBL\bin\Debug\Activity_DAL.pdb
+C:\Users\Hp\source\repos\WebAPIActivity3\ActivityBL\obj\Debug\ActivityBL.csproj.AssemblyReference.cache
+C:\Users\Hp\source\repos\WebAPIActivity3\ActivityBL\obj\Debug\ActivityBL.csproj.CoreCompileInputs.cache
+C:\Users\Hp\source\repos\WebAPIActivity3\ActivityBL\obj\Debug\ActivityBL.csproj.CopyComplete
+C:\Users\Hp\source\repos\WebAPIActivity3\ActivityBL\obj\Debug\ActivityBL.dll
+C:\Users\Hp\source\repos\WebAPIActivity3\ActivityBL\obj\Debug\ActivityBL.pdb

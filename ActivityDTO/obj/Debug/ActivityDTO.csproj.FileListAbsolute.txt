@@ -1,0 +1,6 @@
+C:\Users\Hp\source\repos\WebAPIActivity3\ActivityDTO\bin\Debug\ActivityDTO.dll
+C:\Users\Hp\source\repos\WebAPIActivity3\ActivityDTO\bin\Debug\ActivityDTO.pdb
+C:\Users\Hp\source\repos\WebAPIActivity3\ActivityDTO\obj\Debug\ActivityDTO.csproj.AssemblyReference.cache
+C:\Users\Hp\source\repos\WebAPIActivity3\ActivityDTO\obj\Debug\ActivityDTO.csproj.CoreCompileInputs.cache
+C:\Users\Hp\source\repos\WebAPIActivity3\ActivityDTO\obj\Debug\ActivityDTO.dll
+C:\Users\Hp\source\repos\WebAPIActivity3\ActivityDTO\obj\Debug\ActivityDTO.pdb

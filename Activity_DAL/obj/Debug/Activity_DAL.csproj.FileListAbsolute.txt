@@ -1,0 +1,9 @@
+C:\Users\Hp\source\repos\WebAPIActivity3\Activity_DAL\bin\Debug\Activity_DAL.dll
+C:\Users\Hp\source\repos\WebAPIActivity3\Activity_DAL\bin\Debug\Activity_DAL.pdb
+C:\Users\Hp\source\repos\WebAPIActivity3\Activity_DAL\bin\Debug\ActivityDTO.dll
+C:\Users\Hp\source\repos\WebAPIActivity3\Activity_DAL\bin\Debug\ActivityDTO.pdb
+C:\Users\Hp\source\repos\WebAPIActivity3\Activity_DAL\obj\Debug\Activity_DAL.csproj.AssemblyReference.cache
+C:\Users\Hp\source\repos\WebAPIActivity3\Activity_DAL\obj\Debug\Activity_DAL.csproj.CoreCompileInputs.cache
+C:\Users\Hp\source\repos\WebAPIActivity3\Activity_DAL\obj\Debug\Activity_DAL.csproj.CopyComplete
+C:\Users\Hp\source\repos\WebAPIActivity3\Activity_DAL\obj\Debug\Activity_DAL.dll
+C:\Users\Hp\source\repos\WebAPIActivity3\Activity_DAL\obj\Debug\Activity_DAL.pdb
