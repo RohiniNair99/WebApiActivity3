@@ -21,39 +21,45 @@ namespace ActivityThree.Controllers
         {
             try
             {
-                
-                blObj = new FacultyBL();
-                int result = blObj.AddFaculty(faculty);
-                if (result == 1)
+                if (faculty.PSNO != null && faculty.FacultyName != null && faculty.EmailId != null)
                 {
-                    var response = new HttpResponseMessage(HttpStatusCode.OK);
-                    response.Content = new StringContent("Faculty Inserted Successfully");
-                    response.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
-                    return response;
-                }
+                    blObj = new FacultyBL();
+                    int result = blObj.AddFaculty(faculty);
+                    if (result == 1)
+                    {
+                        var response = new HttpResponseMessage(HttpStatusCode.OK);
+                        response.Content = new StringContent("Faculty Inserted Successfully. \nReturn Value:"+result);
+                        response.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
+                        return response;
+                    }
 
-                else if (result == -1)
-                {
-                    var response = new HttpResponseMessage(HttpStatusCode.OK);
-                    response.Content = new StringContent("PSNO already present.Try different PSNO");
-                    return response;
-                }
-                else if (result == -2)
-                {
-                    var response = new HttpResponseMessage(HttpStatusCode.OK);
-                    response.Content = new StringContent("Faculty Name already taken.Try different Faculty Name.");
-                    return response;
-                }
-                else if (result == -3)
-                {
-                    var response = new HttpResponseMessage(HttpStatusCode.OK);
-                    response.Content = new StringContent("Please input all values(PSNO/EmailId/facultyName)");
-                    return response;
+                    else if (result == -1)
+                    {
+                        var response = new HttpResponseMessage(HttpStatusCode.OK);
+                        response.Content = new StringContent("PSNO already present.Try different PSNO. \nReturnValue:"+result);
+                        return response;
+                    }
+                    else if (result == -2)
+                    {
+                        var response = new HttpResponseMessage(HttpStatusCode.OK);
+                        response.Content = new StringContent("Faculty Name already taken.Try different Faculty Name.\nReturn value:"+result);
+                        return response;
+                    }
+                    else
+                    {
+                        var response = new HttpResponseMessage(HttpStatusCode.OK);
+                        response.Content = new StringContent("Return Value: "+result.ToString());
+                        return response;
+                    }
                 }
                 else
                 {
-                    throw new Exception();
+                    var response = new HttpResponseMessage(HttpStatusCode.OK);
+                    int result = -3;
+                    response.Content = new StringContent("Please input all values(PSNO/EmailId/facultyName) \nReturn Value: "+result);
+                    return response;
                 }
+                
             }
             catch (Exception ex)
             {

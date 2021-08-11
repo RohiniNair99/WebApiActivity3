@@ -20,34 +20,40 @@ namespace ActivityThree.Controllers
         {
             try
             {
-                
-                blObj = new GraderBL();
-                int result = blObj.AddGrade(grader);
-                if (result == 1)
+                if (grader.BCFId != 0 && grader.PSNO != 0 && grader.Score != 0)
                 {
-                    var response = new HttpResponseMessage(HttpStatusCode.OK);
-                    response.Content = new StringContent("Grade Inserted Successfully");
-                    response.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
-                    return response;
+                    blObj = new GraderBL();
+                    int result = blObj.AddGrade(grader);
+                    if (result == 1)
+                    {
+                        var response = new HttpResponseMessage(HttpStatusCode.OK);
+                        response.Content = new StringContent("Grade Inserted Successfully.\nReturn Value: " + result);
+                        response.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
+                        return response;
+                    }
+
+                    else if (result == -1)
+                    {
+                        var response = new HttpResponseMessage(HttpStatusCode.OK);
+                        response.Content = new StringContent("This data has been already entered. \nReturn Value:" + result);
+                        return response;
+                    }
+                    else
+                    {
+                        var response = new HttpResponseMessage(HttpStatusCode.OK);
+                        response.Content = new StringContent("Return Value:" + result);
+                        return response;
+                    }
                 }
 
-                else if (result == -1)
+                else
                 {
                     var response = new HttpResponseMessage(HttpStatusCode.OK);
-                    response.Content = new StringContent("This data has been already entered.");
+                    int result = -3;
+                    response.Content = new StringContent("Please input all values(BCFId/PSNO/Score). \nReturn Value: " + result);
                     return response;
                 }
                 
-                else if (result == -3)
-                {
-                    var response = new HttpResponseMessage(HttpStatusCode.OK);
-                    response.Content = new StringContent("Please input all values(BCFId/PSNO/Score)");
-                    return response;
-                }
-                else
-                {
-                    throw new Exception();
-                }
             }
             catch (Exception ex)
             {

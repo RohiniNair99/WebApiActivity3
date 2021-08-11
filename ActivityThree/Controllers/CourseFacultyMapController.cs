@@ -21,34 +21,40 @@ namespace ActivityThree.Controllers
         {
             try
             {
-
-                blObj = new CourseFacultyMap_BL();
-                int result = blObj.AddCourseFacultyMap(obj);
-                if (result == 1)
+                if (obj.CourseId != null && obj.PSNO != null && obj.PrimaryFaculty != null)
                 {
-                    var response = new HttpResponseMessage(HttpStatusCode.OK);
-                    response.Content = new StringContent("Faculty Course Mapping Inserted Successfully");
-                    response.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
-                    return response;
+                    blObj = new CourseFacultyMap_BL();
+                    int result = blObj.AddCourseFacultyMap(obj);
+                    if (result == 1)
+                    {
+                        var response = new HttpResponseMessage(HttpStatusCode.OK);
+                        response.Content = new StringContent("Faculty Course Mapping Inserted Successfully. \nReturn value:" + result);
+                        response.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
+                        return response;
+                    }
+
+                    else if (result == -1)
+                    {
+                        var response = new HttpResponseMessage(HttpStatusCode.OK);
+                        response.Content = new StringContent("This data has already been entered. \nReturn value:" + result);
+                        return response;
+                    }
+                    else
+                    {
+                        var response = new HttpResponseMessage(HttpStatusCode.OK);
+                        response.Content = new StringContent("Return Value: "+result.ToString());
+                        return response;
+                    }
                 }
 
-                else if (result == -1)
+                else
                 {
                     var response = new HttpResponseMessage(HttpStatusCode.OK);
-                    response.Content = new StringContent("This data has already been entered.");
+                    int result = -3;
+                    response.Content = new StringContent("Please input all values(CourseId/PSNO/PrimaryFaculty). \nReturn Value:" + result);
                     return response;
                 }
                 
-                else if (result == -3)
-                {
-                    var response = new HttpResponseMessage(HttpStatusCode.OK);
-                    response.Content = new StringContent("Please input all values(CourseId/PSNO/PrimaryFaculty)");
-                    return response;
-                }
-                else
-                {
-                    throw new Exception();
-                }
             }
             catch (Exception ex)
             {

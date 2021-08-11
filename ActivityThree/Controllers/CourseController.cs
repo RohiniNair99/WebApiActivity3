@@ -20,45 +20,46 @@ namespace ActivityThree.Controllers
         {
             try
             {
-                if(course.CourseId ==null)
+                if (course.CourseId != null && course.CourseTitle != null && course.CourseDuration != null && course.CourseMode != null)
                 {
-                    var response = new HttpResponseMessage(HttpStatusCode.OK);
-                    response.Content = new StringContent("Course null");
-                    response.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
-                    return response;
-                }
-                blObj = new CourseBL();
-                int result = blObj.AddCourse(course);
-                if (result==1)
-                {
-                    var response = new HttpResponseMessage(HttpStatusCode.OK);
-                    response.Content = new StringContent("Course Inserted Successfully");
-                    response.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
-                    return response;
-                }
 
-                else if(result==-1)
+                    blObj = new CourseBL();
+                    int result = blObj.AddCourse(course);
+                    if (result == 1)
+                    {
+                        var response = new HttpResponseMessage(HttpStatusCode.OK);
+                        response.Content = new StringContent("Course Inserted Successfully. \nReturn Value: "+result);
+                        response.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
+                        return response;
+                    }
+
+                    else if (result == -1)
+                    {
+                        var response = new HttpResponseMessage(HttpStatusCode.OK);
+                        response.Content = new StringContent("CourseId already present.Try different CourseId. \nReturn Value: "+result);
+                        return response;
+                    }
+                    else if (result == -2)
+                    {
+                        var response = new HttpResponseMessage(HttpStatusCode.OK);
+                        response.Content = new StringContent("Course Title already taken.Try different Course Title.\nReturn Value:"+result);
+                        return response;
+                    }
+                    else
+                    {
+                        var response = new HttpResponseMessage(HttpStatusCode.OK);
+                        response.Content = new StringContent(result.ToString());
+                        return response;
+                    }
+                }
+                else 
                 {
                     var response = new HttpResponseMessage(HttpStatusCode.OK);
-                    response.Content = new StringContent("CourseId already present.Try different CourseId");
+                    int result = -3;
+                    response.Content = new StringContent("Please input all values(CourseId/CourseTitle/CourseDuration/CourseMode) \nReturn Value: "+result);
                     return response;
                 }
-                else if(result==-2)
-                {
-                    var response = new HttpResponseMessage(HttpStatusCode.OK);
-                    response.Content = new StringContent("Course Title already taken.Try different Course Title.");
-                    return response;
-                }
-                else if(result==-3)
-                {
-                    var response = new HttpResponseMessage(HttpStatusCode.OK);
-                    response.Content = new StringContent("Please input all values(CourseId/CourseTitle/CourseDuration/CourseMode)");
-                    return response;
-                }
-                else
-                {
-                    throw new Exception();
-                }
+                
             }
             catch (Exception ex)
             {
